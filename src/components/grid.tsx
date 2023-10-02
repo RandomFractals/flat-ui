@@ -221,7 +221,7 @@ export function Grid(props: GridProps) {
   const columnWidthCallback = React.useCallback(i => columnWidths[i] || 150, [
     columnWidths.join(','),
   ]);
-  const rowHeightCallback = React.useCallback(i => (i ? 40 : 117), []);
+  const rowHeightCallback = React.useCallback(i => (i ? 25 : 117), []);
 
   const columnNamesWithOptionalEmptyColumn = React.useMemo(() => {
     let res = [...columnNames]
@@ -283,7 +283,7 @@ export function Grid(props: GridProps) {
         newHighlight = diffs.length;
       } else {
         const currentRowIndex =
-          Math.round((currentScrollYOffset.current - 117) / 40) + 6;
+          Math.round((currentScrollYOffset.current - 117) / 25) + 6;
         const nearestDiffIndex = bisectLeft(
           // @ts-ignore
           diffs.map(d => d.__rowIndex__),
@@ -409,7 +409,7 @@ export function Grid(props: GridProps) {
           tw="absolute inset-0 z-0 animate-pulse"
           style={{
             background: `linear-gradient(to bottom, #E5E7EB 1px, white 1px) 0 -4px`,
-            backgroundSize: '100% 40px',
+            backgroundSize: '100% 25px',
           }}
         />
       </div>
@@ -434,7 +434,7 @@ export function Grid(props: GridProps) {
         tw="flex-1 w-full h-full"
         style={{
           background: `linear-gradient(to bottom, #E5E7EB 1px, transparent 1px) 0 -4px`,
-          backgroundSize: `100% 40px`,
+          backgroundSize: `100% 25px`,
         }}
         onMouseLeave={() => handleFocusedRowIndexChange(undefined)}
       >
